@@ -86,5 +86,11 @@
 	[NSClassFromString(@"TTWindowController") jr_swizzleMethod:@selector(awakeFromNib) withMethod:@selector(TerminalTabSwitching_awakeFromNib) error:NULL];
 	[NSClassFromString(@"TTWindowController") jr_swizzleMethod:@selector(newTab:) withMethod:@selector(TerminalTabSwitching_newTab:) error:NULL];
 	[NSClassFromString(@"TTWindowController") jr_swizzleMethod:@selector(mergeAllWindows:) withMethod:@selector(TerminalTabSwitching_mergeAllWindows:) error:NULL];
+
+  [[NSApp windowsMenu] addItem:[NSMenuItem separatorItem]];
+  NSWindow *mainWindow = [NSApp mainWindow];
+  [NSApp removeWindowsItem:mainWindow];
+  [mainWindow setExcludedFromWindowsMenu:YES];
+  [[mainWindow windowController] updateTabListMenu];
 }
 @end
