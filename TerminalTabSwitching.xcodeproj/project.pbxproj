@@ -22,6 +22,7 @@
 		91151C4F0CD8DD5300E72F1F /* TerminalTabSwitching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalTabSwitching.m; sourceTree = "<group>"; };
 		912D2A9A0CD9156B00EB7419 /* JRSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		D42F067011EE63B900B12503 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,8 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D42F067011EE63B900B12503 /* JRSwizzle.h */,
+				912D2A9A0CD9156B00EB7419 /* JRSwizzle.m */,
 				91151C4F0CD8DD5300E72F1F /* TerminalTabSwitching.m */,
 			);
 			name = Classes;
@@ -102,7 +105,6 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				912D2A9A0CD9156B00EB7419 /* JRSwizzle.m */,
 				32DBCF630370AF2F00C91783 /* TerminalTabSwitching_Prefix.pch */,
 			);
 			name = "Other Sources";
