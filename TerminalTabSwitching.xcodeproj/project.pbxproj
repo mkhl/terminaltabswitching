@@ -171,7 +171,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"$HOME/Library/Application Support/SIMBL/PlugIns\"\ncp -pR \"${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}\" \"$HOME/Library/Application Support/SIMBL/PlugIns\"\n";
+			shellScript = ": ${SIMBL:=$HOME/Library/Application Support/SIMBL/Plugins}\nmkdir -p \"$SIMBL\"\ncp -pR \"${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}\" \"$SIMBL\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
