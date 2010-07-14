@@ -4,11 +4,18 @@
 - (void)updateTabListMenu
 {
 	NSMenu* windowsMenu = [[NSApplication sharedApplication] windowsMenu];
-	
+
+  BOOL wasSeparator = NO;
 	for(NSMenuItem* menuItem in [windowsMenu itemArray])
 	{
 		if([menuItem action] == @selector(selectRepresentedTabViewItem:))
-			[windowsMenu removeItem:menuItem];
+      [windowsMenu removeItem:menuItem];
+    else if ([menuItem action] == @selector(makeKeyAndOrderFront:))
+      [windowsMenu removeItem:menuItem];
+    else if (wasSeparator && [menuItem isSeparatorItem])
+      [windowsMenu removeItem:menuItem];
+    else
+      wasSeparator = [menuItem isSeparatorItem];
 	}
 
 	NSArray* tabViewItems = [[self valueForKey:@"tabView"] tabViewItems];
