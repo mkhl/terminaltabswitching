@@ -6,14 +6,14 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>sh.ciaranwal.terminaltabswitching</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleSignature</key>
@@ -28,7 +28,7 @@
 			<key>BundleIdentifier</key>
 			<string>com.apple.Terminal</string>
 			<key>MaxBundleVersion</key>
-			<string>272</string>
+			<string>273</string>
 			<key>MinBundleVersion</key>
 			<string>237</string>
 		</dict>
