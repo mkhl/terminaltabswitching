@@ -1,6 +1,12 @@
 #import "JRSwizzle.h"
 
 @implementation NSWindowController (TerminalTabSwitching)
+- (void)selectRepresentedTabViewItem:(NSMenuItem*)item
+{
+	NSTabViewItem* tabViewItem = [item representedObject];
+	[[tabViewItem tabView] selectTabViewItem:tabViewItem];
+}
+
 - (void)updateTabListMenu
 {
 	NSMenu* windowsMenu = [[NSApplication sharedApplication] windowsMenu];
@@ -24,23 +30,12 @@
 		NSString* keyEquivalent = (tabIndex < 10) ? [NSString stringWithFormat:@"%d", (tabIndex+1)%10] : @"";
 		NSTabViewItem* tabViewItem = [tabViewItems objectAtIndex:tabIndex];
 		NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle:[tabViewItem label]
-                                                        action:@selector(selectRepresentedTabViewItem:)
-                                                 keyEquivalent:keyEquivalent];
+                                                      action:@selector(selectRepresentedTabViewItem:)
+                                               keyEquivalent:keyEquivalent];
 		[menuItem setRepresentedObject:tabViewItem];
 		[windowsMenu addItem:menuItem];
 		[menuItem release];
 	}
-}
-
-- (void)TerminalTabSwitching_windowDidBecomeMain:(id)fp8;
-{
-	[self TerminalTabSwitching_windowDidBecomeMain:fp8];
-	[self updateTabListMenu];
-}
-
-- (void)tabViewDidChangeNumberOfTabViewItems:(NSTabView*)aTabView
-{
-	[self updateTabListMenu];
 }
 
 - (void)TerminalTabSwitching_awakeFromNib;
@@ -50,20 +45,33 @@
 	[self TerminalTabSwitching_awakeFromNib];
 }
 
+- (void)TerminalTabSwitching_windowDidBecomeMain:(id)fp8;
+{
+	[self TerminalTabSwitching_windowDidBecomeMain:fp8];
+	[self updateTabListMenu];
+}
+
 - (void)TerminalTabSwitching_newTab:(id)fp8;
 {
 	[self TerminalTabSwitching_newTab:fp8];
 	[self updateTabListMenu];
 }
+
 - (void)TerminalTabSwitching_mergeAllWindows:(id)fp8;
 {
 	[self TerminalTabSwitching_mergeAllWindows:fp8];
 	[self updateTabListMenu];
 }
-- (void)selectRepresentedTabViewItem:(NSMenuItem*)item
+
+- (void)TerminalTabSwitching_tabView:(id)fp8 didCloseTabViewItem:(id)fp16
 {
-	NSTabViewItem* tabViewItem = [item representedObject];
-	[[tabViewItem tabView] selectTabViewItem:tabViewItem];
+	[self TerminalTabSwitching_tabView:fp8 didCloseTabViewItem:fp16];
+	[self updateTabListMenu];
+}
+
+- (void)tabViewDidChangeNumberOfTabViewItems:(NSTabView*)aTabView
+{
+	[self updateTabListMenu];
 }
 @end
 
