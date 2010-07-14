@@ -1,6 +1,6 @@
 #import "JRSwizzle.h"
 
-@implementation NSWindowController (Mine)
+@implementation NSWindowController (TerminalTabSwitching)
 - (void)updateTabListMenu
 {
 	NSMenu* windowsMenu = [[NSApplication sharedApplication] windowsMenu];
